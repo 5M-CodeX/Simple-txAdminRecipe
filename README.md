@@ -1,6 +1,12 @@
-# txAdminRecipe
+# ND Framework Recipe
 
 **Description:** Complete NDFramework Base Server.
 
 This recipe runs inside [**txAdmin**](https://github.com/tabarra/txAdmin).
-Please check the [**Recipe Documentation Page**](https://github.com/tabarra/txAdmin/blob/master/docs/recipe.md).
+
+
+# Configuration After Installation
+
+Please navigate to ND_Core/config_server.lua. Replace Token and Guild ID With yours.
+
+Please navigate to ND_Core/config_client.lua. Configure to Servers Liking.
