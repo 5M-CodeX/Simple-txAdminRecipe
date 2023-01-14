@@ -25,9 +25,6 @@ tasks:
   - action: query_database
     file: ./tmp/ndcore/core.sql
     
-  - action: connect_database
-  - action: query_database
-    file: ./tmp/ndcore/banking.sql
 
 
   # STANDALONE
@@ -42,13 +39,6 @@ tasks:
   - action: unzip
     dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
-
-
-  - action: download_github
-    dest: ./resources/[standalone]/bob74_ipl
-    ref: master
-    src: https://github.com/ndcore-framework/bob74_ipl
-
 
   # Downloading ndcore resources
   - action: download_github
@@ -70,14 +60,12 @@ tasks:
     dest: ./resources/[nd]/ND_Commands
     ref: main
     src: https://github.com/ND-Framework/ND_Commands
-
+  
   - action: download_github
-    dest: ./resources/[nd]/ND_Banking
+    dest: ./resources/[nd]/SimpleHUD
     ref: main
-    src: https://github.com/ND-Framework/ND_Banking
+    src: https://github.com/Andyyy7666/SimpleHUD
 
-  - action: waste_time # prevent github throttling
-    seconds: 10
 
   # Clean up
   - action: remove_path
