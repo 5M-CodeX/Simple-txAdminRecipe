@@ -1,9 +1,9 @@
 $engine: 3
 $onesync: on
-name: ND Framework
-version: 2.2.4
-author: Andyyy7666 & Its-Scru & geneva#3054 & nik0-3d Recipe - DiscordSolutions
-description: ND Framework - FiveM character roleplay framework
+name: ND-Framework
+version: 1.03
+author: Andyyy7666 & Its-Scru & geneva#3054 & nik0-3d | Recipe - 5M-CodeX(TheStoicBear)
+description: ND-Framework - FiveM character roleplay framework
 
 tasks:
   #  Download Base Files
@@ -15,18 +15,29 @@ tasks:
   - action: move_path
     src: ./tmp/ndcore/server.cfg
     dest: ./server.cfg
-
+    
   - action: move_path
     src: ./tmp/ndcore/myLogo.png
     dest: ./myLogo.png
 
-  # Prepare Database
+  # Prepare Databases
   - action: connect_database
   - action: query_database
     file: ./tmp/ndcore/core.sql
+
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/ndcore/vehiclesystem.sql
     
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/ndcore/banking.sql
+    
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/ndcore/properties.sql
 
-
+    
   # STANDALONE
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
@@ -35,16 +46,26 @@ tasks:
 
   - action: download_file
     path: ./tmp/files/oxmysql.zip
-    url: https://github.com/overextended/oxmysql/releases/download/v2.5.4/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/download/v2.7.2/oxmysql.zip
   - action: unzip
     dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
+    
+  - action: download_file
+    path: ./tmp/files/ox_lib.zip
+    url: https://github.com/overextended/ox_lib/releases/download/v3.6.2/ox_lib.zip
+  - action: unzip
+    dest: ./resources/[standalone]
+    src: ./tmp/files/ox_lib.zip
 
-  # Downloading ndcore resources
-  - action: download_github
-    dest: ./resources/[nd]/ND_Core
-    ref: main
-    src: https://github.com/ND-Framework/ND_Core
+
+  # Downloading ND-Framework resources
+  - action: download_file
+    path: ./tmp/files/ND_Core.zip
+    url: https://github.com/ND-Framework/ND_Core/releases/download/v1.0.3/ND_Core.zip
+  - action: unzip
+    dest: ./resources/[nd]
+    src: ./tmp/files/ND_Core.zip
 
   - action: download_github
     dest: ./resources/[nd]/ND_Characters
@@ -57,15 +78,40 @@ tasks:
     src: https://github.com/ND-Framework/ND_Fuel
 
   - action: download_github
-    dest: ./resources/[nd]/ND_Commands
+    dest: ./resources/[nd]/ND_VehicleSystem
     ref: main
-    src: https://github.com/ND-Framework/ND_Commands
-  
+    src: https://github.com/ND-Framework/ND_VehicleSystem
+
+  - action: download_github
+    dest: ./resources/[nd]/ND_Dealership
+    ref: main
+    src: https://github.com/Framework/ND_Dealership
+
+  - action: download_github
+    dest: ./resources/[nd]/ND_Banking
+    ref: main
+    src: https://github.com/Framework/ND_Banking
+
+  - action: download_github
+    dest: ./resources/[nd]/ND_Properties
+    ref: main
+    src: https://github.com/Framework/ND_Properties
+
+  - action: download_github
+    dest: ./resources/[nd]/ND_Chat
+    ref: main
+    src: https://github.com/lucaswydx/ND_Chat/
+
   - action: download_github
     dest: ./resources/[nd]/SimpleHUD
     ref: main
     src: https://github.com/Andyyy7666/SimpleHUD
 
+  
+  - action: download_github
+    dest: ./resources/[nd]/ND_AppearanceShops
+    ref: main
+    src: https://github.com/ND-Framework/ND_AppearanceShops
 
   # Clean up
   - action: remove_path
