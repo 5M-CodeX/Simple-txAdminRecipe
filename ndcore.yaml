@@ -85,17 +85,17 @@ tasks:
   - action: download_github
     dest: ./resources/[nd]/ND_Dealership
     ref: main
-    src: https://github.com/Framework/ND_Dealership
+    src: https://github.com/ND-Framework/ND_Dealership
 
   - action: download_github
     dest: ./resources/[nd]/ND_Banking
     ref: main
-    src: https://github.com/Framework/ND_Banking
+    src: https://github.com/ND-Framework/ND_Banking
 
   - action: download_github
     dest: ./resources/[nd]/ND_Properties
     ref: main
-    src: https://github.com/Framework/ND_Properties
+    src: https://github.com/ND-Framework/ND_Properties
 
   - action: download_github
     dest: ./resources/[nd]/ND_Chat
