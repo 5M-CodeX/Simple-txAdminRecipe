@@ -87,10 +87,13 @@ tasks:
     ref: main
     src: https://github.com/ND-Framework/ND_Dealership
 
-  - action: download_github
-    dest: ./resources/[nd]/ND_Banking
-    ref: main
-    src: https://github.com/ND-Framework/ND_Banking
+  # Downloading ND-Framework resources
+  - action: download_file
+    path: ./resources/[nd]/ND_Banking
+    url: https://github.com/ND-Framework/ND_Banking/releases/download/v1.0.0/ND_Banking.zip
+  - action: unzip
+    dest: ./resources/[nd]
+    src: ./tmp/files/ND_Banking.zip
 
   - action: download_github
     dest: ./resources/[nd]/ND_Properties
