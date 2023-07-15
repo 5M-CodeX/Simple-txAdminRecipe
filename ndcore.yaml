@@ -1,7 +1,7 @@
 $engine: 3
 $onesync: on
 name: ND-Framework
-version: 1.03
+version: 1.0.3
 author: Andyyy7666 & Its-Scru & geneva#3054 & nik0-3d | Recipe - 5M-CodeX(TheStoicBear)
 description: ND-Framework - FiveM character roleplay framework
 
@@ -20,25 +20,16 @@ tasks:
     src: ./tmp/ndcore/myLogo.png
     dest: ./myLogo.png
 
-  # Prepare Databases
   - action: connect_database
   - action: query_database
     file: ./tmp/ndcore/core.sql
-
-  - action: connect_database
+  - action: query_database
+    file: ./tmp/ndcore/properties.sql
+  - action: query_database
+    file: ./tmp/ndcore/banking.sql
   - action: query_database
     file: ./tmp/ndcore/vehiclesystem.sql
     
-  - action: connect_database
-  - action: query_database
-    file: ./tmp/ndcore/banking.sql
-    
-  - action: connect_database
-  - action: query_database
-    file: ./tmp/ndcore/properties.sql
-
-    
-  # STANDALONE
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
     subpath: resources
@@ -58,14 +49,33 @@ tasks:
     dest: ./resources/[standalone]
     src: ./tmp/files/ox_lib.zip
 
-
-  # Downloading ND-Framework resources
   - action: download_file
     path: ./tmp/files/ND_Core.zip
     url: https://github.com/ND-Framework/ND_Core/releases/download/v1.0.3/ND_Core.zip
   - action: unzip
     dest: ./resources/[nd]
     src: ./tmp/files/ND_Core.zip
+
+  - action: download_file
+    path: ./tmp/files/ND_Banking.zip
+    url: https://github.com/ND-Framework/ND_Banking/releases/download/v1.0.0/ND_Banking.zip
+  - action: unzip
+    dest: ./resources/[nd]
+    src: ./tmp/files/ND_Banking.zip
+
+  - action: download_file
+    path: ./tmp/files/ND_Chat.zip
+    url: https://github.com/lucaswydx/ND_Chat/releases/download/v1.0.5/ND_Chat.V1.0.5.zip
+  - action: unzip
+    dest: ./resources/[nd]
+    src: ./tmp/files/ND_Chat.zip
+
+  - action: download_file
+    path: ./tmp/files/fivem-appearance.rar
+    url: https://github.com/pedr0fontoura/fivem-appearance/releases/download/v1.3.1/fivem-appearance.rar
+  - action: unzip
+    dest: ./resources/[nd]
+    src: ./tmp/files/fivem-appearance.rar
 
   - action: download_github
     dest: ./resources/[nd]/ND_Characters
@@ -84,16 +94,8 @@ tasks:
 
   - action: download_github
     dest: ./resources/[nd]/ND_Dealership
-    ref: main
+    ref: master
     src: https://github.com/ND-Framework/ND_Dealership
-
-  # Downloading ND-Framework resources
-  - action: download_file
-    path: ./resources/[nd]/ND_Banking
-    url: https://github.com/ND-Framework/ND_Banking/releases/download/v1.0.0/ND_Banking.zip
-  - action: unzip
-    dest: ./resources/[nd]
-    src: ./tmp/files/ND_Banking.zip
 
   - action: download_github
     dest: ./resources/[nd]/ND_Properties
@@ -101,20 +103,19 @@ tasks:
     src: https://github.com/ND-Framework/ND_Properties
 
   - action: download_github
-    dest: ./resources/[nd]/ND_Chat
-    ref: main
-    src: https://github.com/lucaswydx/ND_Chat/
-
-  - action: download_github
     dest: ./resources/[nd]/SimpleHUD
     ref: main
     src: https://github.com/Andyyy7666/SimpleHUD
-
   
   - action: download_github
     dest: ./resources/[nd]/ND_AppearanceShops
     ref: main
     src: https://github.com/ND-Framework/ND_AppearanceShops
+
+  - action: download_github
+    dest: ./resources/[nd]/ND_DoorLocks
+    ref: main
+    src: https://github.com/ND-Framework/ND_DoorLocks
 
   # Clean up
   - action: remove_path
