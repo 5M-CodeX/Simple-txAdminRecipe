@@ -24,11 +24,6 @@ tasks:
   - action: query_database
     file: ./tmp/ndcore/core.sql
   - action: query_database
-    file: ./tmp/ndcore/properties.sql
-  - action: query_database
-    file: ./tmp/ndcore/banking.sql
-  - action: query_database
-    file: ./tmp/ndcore/vehiclesystem.sql
     
   - action: download_github
     src: https://github.com/citizenfx/cfx-server-data
@@ -37,14 +32,14 @@ tasks:
 
   - action: download_file
     path: ./tmp/files/oxmysql.zip
-    url: https://github.com/overextended/oxmysql/releases/download/v2.7.2/oxmysql.zip
+    url: https://github.com/overextended/oxmysql/releases/download/v2.7.5/oxmysql.zip
   - action: unzip
     dest: ./resources/[standalone]
     src: ./tmp/files/oxmysql.zip
     
   - action: download_file
     path: ./tmp/files/ox_lib.zip
-    url: https://github.com/overextended/ox_lib/releases/download/v3.6.2/ox_lib.zip
+    url: https://github.com/overextended/ox_lib/releases/download/v3.11.0/ox_lib.zip
   - action: unzip
     dest: ./resources/[standalone]
     src: ./tmp/files/ox_lib.zip
@@ -56,59 +51,15 @@ tasks:
     dest: ./resources/[nd]
     src: ./tmp/files/ND_Core.zip
 
-  - action: download_file
-    path: ./tmp/files/ND_Banking.zip
-    url: https://github.com/ND-Framework/ND_Banking/releases/download/v1.0.0/ND_Banking.zip
-  - action: unzip
-    dest: ./resources/[nd]
-    src: ./tmp/files/ND_Banking.zip
-
-  - action: download_file
-    path: ./tmp/files/ND_Chat.zip
-    url: https://github.com/lucaswydx/ND_Chat/releases/download/v1.0.5/ND_Chat.V1.0.5.zip
-  - action: unzip
-    dest: ./resources/[nd]
-    src: ./tmp/files/ND_Chat.zip
-
   - action: download_github
     dest: ./resources/[nd]/ND_Characters
     ref: main
     src: https://github.com/ND-Framework/ND_Characters
 
   - action: download_github
-    dest: ./resources/[nd]/ND_Fuel
-    ref: main
-    src: https://github.com/ND-Framework/ND_Fuel
-
-  - action: download_github
-    dest: ./resources/[nd]/ND_VehicleSystem
-    ref: main
-    src: https://github.com/ND-Framework/ND_VehicleSystem
-
-  - action: download_github
-    dest: ./resources/[nd]/ND_Dealership
-    ref: master
-    src: https://github.com/ND-Framework/ND_Dealership
-
-  - action: download_github
-    dest: ./resources/[nd]/ND_Properties
-    ref: main
-    src: https://github.com/ND-Framework/ND_Properties
-
-  - action: download_github
     dest: ./resources/[nd]/SimpleHUD
     ref: main
     src: https://github.com/Andyyy7666/SimpleHUD
-  
-  - action: download_github
-    dest: ./resources/[nd]/ND_AppearanceShops
-    ref: main
-    src: https://github.com/ND-Framework/ND_AppearanceShops
-
-  - action: download_github
-    dest: ./resources/[nd]/ND_DoorLocks
-    ref: main
-    src: https://github.com/ND-Framework/ND_DoorLocks
 
   # Clean up
   - action: remove_path
